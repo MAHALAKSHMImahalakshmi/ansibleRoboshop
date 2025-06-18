@@ -1,0 +1,116 @@
+- name : configure catalogue component
+  hosts: catalogue
+  become: yes
+  tasks:
+  - name: disable current  nodejs  module
+    ansible.builtin.command: dnf module disable nodejs -y
+  
+  - name: enable  nodejs:20  module
+    ansible.builtin.command: dnf module enable nodejs:20 -y
+
+  - name: install nodejs
+    ansible.builtin.dnf:
+      name: nodejs
+      state: present
+
+  - name: Create a directory if it does not exist
+    ansible.builtin.file:
+     path: /app
+     state: directory
+  
+  - name: Create roboshop system user
+    ansible.builtin.user: 
+      name: roboshop
+      comment: "roboshop system user"
+      shell: /sbin/nologin
+      home: /app
+      system: yes
+      create_home: yes
+    # after refering ansible documents got know about user module, refered examples
+     # error while executed playbook error was about  system user (non-login, lower UID) then checked with chatgpt and resolve error and learnt about one more subject  system and create_user 
+
+  - name: download catalogue code
+    ansible.builtin.get_url:
+      url: https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip 
+      dest: /tmp/catalogue.zip
+
+  - name: unzip the file from /tmp/catalogue.zip to /app
+    ansible.builtin.unarchive:
+    src: /tmp/catalogue.zip
+    dest: /app
+    remote_src: yes
+
+     # this module thinks file exist on ansible control server, needs to extract on to remote machine
+  # remote_src: yes means files already exist in catalogue server eror i made and learnt
+
+
+  - name: Install  node.js package.
+    community.general.npm:
+      name: nodejs
+      path: /app
+
+  - name: Setup SystemD Catalogue Service copy the file to SystemD
+    ansible.builtin.copy:
+      src: catalogue.service
+      dest: /etc/systemd/system/catalogue.service
+
+  - name: Load the service.systemctl deamon reload
+    ansible.builtin.systemd_service:
+      daemon_reload: true
+
+  - name: start and enable service
+    ansible.builtin.service:
+      name: catalogue
+      state: started
+      enabled: yes 
+
+
+  - name: copy mongodb repo
+    ansible.builtin.copy:
+      src: mongo.repo
+      dest: /etc/yum.repos.d/mongo.repo
+  
+  - name: Install mongodb
+    ansible.builtin.dnf:
+      name: mongodb-org
+      state: present
+
+  - name: check products loaded or not
+    ansible.builtin.command: mongosh --host mongodb.srivenkata.shop </app/db/master-data.js
+    register: catalogue_output
+#  Difference Between `command` and `shell` in Ansible:
+#
+# The `command` module is safer and should be used for simple commands
+# that do not require shell features like pipes (|), redirection (<, >), or chaining (&&).
+#
+# The `shell` module should be used when your command needs shell-specific features,
+# such as running multiple commands together, using wildcards (*), or redirecting input/output.
+#
+# The use of `command` whenever possible, because it avoids shell injection risks.
+# The  use of `shell` only when needed for more complex operations.
+
+
+  - name: print catalogue output
+    ansible.builtin.debug:
+      msg: "{{ catalogue_output }}"
+
+  - name: load products
+    ansible.builtin.shell: mongosh --host mongodb.daws84s.site < /app/db/master-data.js
+    when: catalogue_output.stdout | int < 0
+  # error faced here output stout -1 in string coverted int using pipeline 
+  #-1 indicates less than zero then not loaded products
+  #then check cli 
+# mongosh --host mongodb.srivenkata.shop
+#show dbs
+#use catalogue
+#show collections
+#db.products.find()
+    
+
+
+
+
+
+ 
+
+  
