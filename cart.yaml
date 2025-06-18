@@ -1,5 +1,5 @@
 - name : configure cart component
-  hosts: ccart
+  hosts: cart
   become: yes
   tasks:
   - name: disable current  nodejs  module
