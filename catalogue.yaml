@@ -34,11 +34,11 @@
       url: https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip 
       dest: /tmp/catalogue.zip
 
-  - name: unzip the file from /tmp/catalogue.zip to /app
+  - name: extract catalogue code
     ansible.builtin.unarchive:
-    src: /tmp/catalogue.zip
-    dest: /app
-    remote_src: yes
+      src: /tmp/catalogue.zip
+      dest: /app
+      remote_src: yes
 
      # this module thinks file exist on ansible control server, needs to extract on to remote machine
   # remote_src: yes means files already exist in catalogue server eror i made and learnt
