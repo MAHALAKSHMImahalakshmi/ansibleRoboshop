@@ -1,6 +1,6 @@
 - name: configure frotend service
   hosts: frotend
-  because: yes
+  become: yes
   tasks:
     - name: disable nginx
       ansible.builtin.command: dnf module disable nginx -y
