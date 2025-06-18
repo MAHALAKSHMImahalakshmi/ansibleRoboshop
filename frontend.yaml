@@ -1,5 +1,5 @@
 - name: configure frotend service
-  hosts: frotend
+  hosts: frontend
   become: yes
   tasks:
     - name: disable nginx
