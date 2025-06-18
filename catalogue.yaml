@@ -76,8 +76,9 @@
       state: present
 
   - name: check products loaded or not
-    ansible.builtin.command: mongosh --host mongodb.srivenkata.shop </app/db/master-data.js
+    ansible.builtin.command: mongosh --host mongodb.srivenkata.shop --eval 'db.getMongo().getDBNames().indexOf("catalogue")'
     register: catalogue_output
+    
 #  Difference Between `command` and `shell` in Ansible:
 #
 # The `command` module is safer and should be used for simple commands
