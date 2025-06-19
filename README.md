@@ -19,32 +19,65 @@ From provisioning databases to configuring Node.js and Python apps, every playbo
 
 ## 🗂️ What’s Inside
 
-- **Playbooks for Each Component:**  
-  - [`mongodb.yaml`](mongodb.yaml) 🍃 – Install & configure MongoDB  
-  - [`mysql.yaml`](mysql.yaml) 🐬 – Install & secure MySQL  
-  - [`redis.yaml`](redis.yaml) 🧊 – Setup Redis  
-  - [`rabbitmq.yaml`](rabbitmq.yaml) 🐇 – Setup RabbitMQ  
-  - [`catalogue.yaml`](catalogue.yaml) 📦 – Node.js app with MongoDB
-     ![Alt Text](images/Screenshot 2025-06-19 010603.png)
-  - [`user.yaml`](user.yaml) 👤 – Node.js app with MongoDB & Redis
-     ![Alt Text](images/Screenshot 2025-06-19 010631.png)
-   ![Alt Text](images/Screenshot 2025-06-19 010653.png )
-  - [`cart.yaml`](cart.yaml) 🛒 – Node.js app with Redis & Catalogue
-     ![Alt Text](images/Screenshot 2025-06-19 010513.png)
-     ![Alt Text](images/Screenshot 2025-06-19 010726.png)
-  - [`shipping.yaml`](shipping.yaml) 🚚 – Java app with MySQL
-     ![Alt Text](images/Screenshot 2025-06-19 011439.png)
-    ![Alt Text](images/Screenshot 2025-06-19 010726.png)
-  - [`payment.yaml`](payment.yaml) 💳 – Python app with RabbitMQ
-    ![Alt Text]( images/Screenshot 2025-06-19 011511.png)
-    ![Alt Text]( images/Screenshot 2025-06-19 011531.png)
-     ![Alt Text](images/Screenshot 2025-06-19 011554.png)
-    
-  - [`frontend.yaml`](frontend.yaml) 🌐 – Nginx static frontend
-    ![Alt Text](images/Screenshot 2025-06-19 010603.png)
+## 📦 Playbooks for Each Component
 
-### Instances
-   ![Alt Text](images/Screenshot 2025-06-19 005635.png)
+### 🍃 `mongodb.yaml` – Install & configure MongoDB
+
+---
+
+### 🐬 `mysql.yaml` – Install & secure MySQL
+
+---
+
+### 🧊 `redis.yaml` – Setup Redis
+
+---
+
+### 🐇 `rabbitmq.yaml` – Setup RabbitMQ
+
+---
+
+### 📦 `catalogue.yaml` – Node.js app with MongoDB  
+![Catalogue UI](images/Screenshot%202025-06-19%20010603.png)
+
+---
+
+### 👤 `user.yaml` – Node.js app with MongoDB & Redis  
+![User Setup 1](images/Screenshot%202025-06-19%20010631.png)  
+![User Setup 2](images/Screenshot%202025-06-19%20010653.png)
+
+---
+
+### 🛒 `cart.yaml` – Node.js app with Redis & Catalogue  
+![Cart Setup 1](images/Screenshot%202025-06-19%20010513.png)  
+![Cart Setup 2](images/Screenshot%202025-06-19%20010726.png)
+
+---
+
+### 🚚 `shipping.yaml` – Java app with MySQL  
+![Shipping Setup 1](images/Screenshot%202025-06-19%20011439.png)  
+![Shipping Setup 2](images/Screenshot%202025-06-19%20010726.png)
+
+---
+
+### 💳 `payment.yaml` – Python app with RabbitMQ  
+![Payment Setup 1](images/Screenshot%202025-06-19%20011511.png)  
+![Payment Setup 2](images/Screenshot%202025-06-19%20011531.png)  
+![Payment Setup 3](images/Screenshot%202025-06-19%20011554.png)
+
+---
+
+### 🌐 `frontend.yaml` – Nginx static frontend  
+![Frontend UI](images/Screenshot%202025-06-19%20010603.png)
+
+---
+
+## 🖥️ Instances Overview
+
+![Instance Overview](images/Screenshot%202025-06-19%20005635.png)
+
+---
+
 - **Service Files:**  
   - Systemd service files for each app (e.g., [`user.service`](user.service), [`cart.service`](cart.service), etc.)
 
