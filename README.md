@@ -103,13 +103,11 @@ ansible-playbook -i inventory.ini -e "ansible_user=<user>" -e "ansible_password=
 ```
 
 ## 🌟 My Favorite Moments
-🎉 The first time all services started without errors!
-🐞 Debugging and finally loading data into MongoDB and MySQL.
-🤩 Seeing the Roboshop app running end-to-end, fully automated!
-🤝 Join Me!
-Feel free to fork, explore, and contribute.
-Let’s automate and learn together! 🚀
----
+- 🎉 The first time all services started without errors!
+- 🐞 Debugging and finally loading data into MongoDB and MySQL.
+- 🤩 Seeing the Roboshop app running end-to-end, fully automated!
+
+
 ## 📖 My Ansible Learning Journey 🚀✨
 
 Explore my continuous learning adventure across these repositories, each showcasing different facets of my Ansible mastery:
