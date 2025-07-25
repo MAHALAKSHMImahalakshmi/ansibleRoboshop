@@ -1,92 +1,32 @@
 # 🚀 ansibleRoboshop: My Ansible Automation Journey 🛠️✨
 
-Welcome to **ansibleRoboshop**!  
-This repository is a showcase of my hands-on journey automating the Roboshop microservices stack using **Ansible**.  
-From provisioning databases to configuring Node.js and Python apps, every playbook here reflects my learning, troubleshooting, and growth as a DevOps enthusiast! 🌱
+Welcome! This repository showcases my hands-on automation of the Roboshop microservices stack using **Ansible**.  
+Each playbook reflects my growth, troubleshooting wins, and practical DevOps experience. 🌱
 
 ---
 
 ## 📚 How I Learned
 
-- 📝 **Ansible Documentation:**  
-  I relied heavily on the [official Ansible documentation](https://docs.ansible.com/) for module usage, syntax, and best practices.
-- 🤖 **ChatGPT:**  
-  Whenever I hit a roadblock or error, I turned to ChatGPT for quick explanations, YAML fixes, and debugging tips.
-- 🔍 **Trial & Error:**  
-  Especially when loading data into MongoDB and MySQL, I experimented with different modules, shell commands, and error handling until things worked!
+- 📝 [Official Ansible Documentation](https://docs.ansible.com/) for best practices and syntax.
+- 🤖 ChatGPT for debugging help and YAML tips.
+- 🔍 Trial and error with MongoDB and MySQL data loading.
 
 ---
 
 ## 🗂️ What’s Inside
 
-## 📦 Playbooks for Each Component
+### 📦 Playbooks for Microservices & Components
 
-### 🍃 `mongodb.yaml` – Install & configure MongoDB
-
----
-
-### 🐬 `mysql.yaml` – Install & secure MySQL
-
----
-
-### 🧊 `redis.yaml` – Setup Redis
-
----
-
-### 🐇 `rabbitmq.yaml` – Setup RabbitMQ
-
----
-
-### 📦 `catalogue.yaml` – Node.js app with MongoDB  
-![Catalogue UI](images/Screenshot%202025-06-19%20010603.png)
-
----
-
-### 👤 `user.yaml` – Node.js app with MongoDB & Redis  
-![User Setup 1](images/Screenshot%202025-06-19%20010631.png)  
-![User Setup 2](images/Screenshot%202025-06-19%20010653.png)
-
----
-
-### 🛒 `cart.yaml` – Node.js app with Redis & Catalogue  
-![Cart Setup 1](images/Screenshot%202025-06-19%20010513.png)  
-![Cart Setup 2](images/Screenshot%202025-06-19%20010726.png)
-
----
-
-### 🚚 `shipping.yaml` – Java app with MySQL  
-![Shipping Setup 1](images/Screenshot%202025-06-19%20011439.png)  
-![Shipping Setup 2](images/Screenshot%202025-06-19%20010726.png)
-
----
-
-### 💳 `payment.yaml` – Python app with RabbitMQ  
-![Payment Setup 1](images/Screenshot%202025-06-19%20011511.png)  
-![Payment Setup 2](images/Screenshot%202025-06-19%20011531.png)  
-![Payment Setup 3](images/Screenshot%202025-06-19%20011554.png)
-
----
-
-### 🌐 `frontend.yaml` – Nginx static frontend  
-![Frontend UI](images/Screenshot%202025-06-19%20010603.png)
-
----
-
-## 🖥️ Instances Overview
-
-![Instance Overview](images/Screenshot%202025-06-19%20005635.png)
-
----
-
-- **Service Files:**  
-  - Systemd service files for each app (e.g., [`user.service`](user.service), [`cart.service`](cart.service), etc.)
-
-- **Configs & Repos:**  
-  - [`nginx.conf`](nginx.conf) for frontend  
-  - [`mongo.repo`](mongo.repo), [`rabbitmq.repo`](rabbitmq.repo) for YUM repos
-
-- **Inventory:**  
-  - [`inventory.ini`](inventory.ini) – All hostnames and groups
+- 🍃 **mongodb.yaml** – Install & configure MongoDB
+- 🐬 **mysql.yaml** – Install & secure MySQL
+- 🧊 **redis.yaml** – Setup Redis
+- 🐇 **rabbitmq.yaml** – Setup RabbitMQ
+- 📦 **catalogue.yaml** – Node.js app with MongoDB ![Screenshot](images/Screenshot%202025-06-19%20010603.png)
+- 👤 **user.yaml** – Node.js with MongoDB & Redis ![Screenshot](images/Screenshot%202025-06-19%20010631.png)
+- 🛒 **cart.yaml** – Node.js with Redis & Catalogue ![Screenshot](images/Screenshot%202025-06-19%20010513.png)
+- 🚚 **shipping.yaml** – Java app with MySQL ![Screenshot](images/Screenshot%202025-06-19%20011439.png)
+- 💳 **payment.yaml** – Python app with RabbitMQ ![Screenshot](images/Screenshot%202025-06-19%20011511.png)
+- 🌐 **frontend.yaml** – Nginx static frontend ![Screenshot](images/Screenshot%202025-06-19%20010603.png)
 
 ---
 
