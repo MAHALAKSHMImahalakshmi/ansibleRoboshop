@@ -69,7 +69,6 @@ Each playbook reflects my growth, troubleshooting wins, and practical DevOps exp
   - Searched Ansible docs and asked ChatGPT for error explanations.
 
 ---
-
 ## 💡 Tips for Learners
 
 - 📖 **Read the Docs:**  
@@ -92,11 +91,16 @@ Each playbook reflects my growth, troubleshooting wins, and practical DevOps exp
    ```
 2. **Edit inventory.ini with your hostnames.**
 
-3. **Run a playbook:**
+3. **Run a playbook  a specific component:**
  ```bash
-ansible-playbook -i inventory.ini ansible-user=xyz ansible-password=--- catalogue.yaml
-Repeat for each component!
+ansible-playbook -i inventory.ini -e "ansible_user=<user>" -e "ansible_password=<password>" <component-playbook>.yaml
+
  ```
+Replace `<component-playbook>` with e.g., `catalogue.yaml`.
+-Example  🌟
+```
+ansible-playbook -i inventory.ini -e "ansible_user=<user>" -e "ansible_password=<password>" catalogue.yaml
+```
 
 ## 🌟 My Favorite Moments
 🎉 The first time all services started without errors!
